@@ -1,5 +1,6 @@
 # soccalc
 Calculating cost and profit margin for SOC Sales Department
+
 Założenia: 
 Firma X poprosiła mnie o przygotowanie kalkulatora dla działu handlowego obliczającego koszt usługi dla trzech oferowanych pakietów. W pakietach MDR i SOC koszt jest uzależniony od ilości deklarowanych przez klienta użytkowników. Do pakietu SOC Premium można dokupić dodatki, których koszt wyrażony jest w USD lub EUR. 
 Arkusze:
