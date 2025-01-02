@@ -13,6 +13,15 @@ Podobnie jak user conv, arkusz byłby ukryty przed innymi użytkownikami.
 3. MDR view - możliwość edycji dostępna jest tylko dla komórek C2:C5. Użytkownik podaje: liczbę użytkowników, procent marży i marżę partnera / strony trzeciej. Google Sheets umożliwia zapisywanie formuł jako własnych funkcji, więc dla MDR zapisałam dwie w celu uproszczenia zapisywanych danych:
 MDR_RAW =vlookup(komórka;'user conv'!$A:$B;2)*'user conv'!$F$2 - koszt, jaki firma musi ponieść dla usługi o podanej liczbie użytkowników
 MDR_TOTAL=vlookup(komórka;'user conv'!$A:$B;2)*'user conv'!$F$2*(1+('MDR view'!$C$3+'MDR view'!$C$4)) - całkowity koszt z marżami - MDR_RAW przemnażam przez 1,x (gdzie x to procent nadanej marży)
+3.5 MDR SWITCH - przypomniało mi się, że SWITCH istnieje, i użyłam go do pięciu progów liczby userów: 
+  =3500*SWITCH(TRUE;
+  komórka<= 49; 1,8;
+  komórka <= 99; 2;
+  komórka <= 249; 2,3;
+  komórka <= 499; 2,6;
+  komórka >= 500; 2,9;
+  "Invalid User Count")
+  
 4. SOC view -  analogicznie jak w MDR, zapisałam dwie customowe funkcje:
 SOC_TOTAL=vlookup(komórka;'user conv'!$A:$C;3)*'user conv'!$F$2*(1+('SOC view'!$C$3+'SOC view'!$C$4))
 SOC_RAW=vlookup(komórka;'user conv'!$A:$C;3)*'user conv'!$F$2
